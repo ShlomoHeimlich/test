@@ -1,0 +1,11 @@
+img {
+  height: 50px;
+  width: 50px;
+}
+#posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  
+}
+
