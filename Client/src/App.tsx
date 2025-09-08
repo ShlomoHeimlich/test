@@ -1,13 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Posts from "../src/posts.tsx";
-
+import Layout from "./components/application-layout/Layout.tsx";
+import Home from "./components/application-layout/Home.tsx"
+import { BrowserRouter, Routes, Route } from "react-router";
+import PostId from "../src/components/post/PostId.tsx"
 function App() {
   return (
     <>
-      <Posts></Posts>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+             <Route path="/post/:id" element={<PostId />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </>
   );
 }
