@@ -13,7 +13,8 @@ export default function Layout(props: any) {
         <Logo />
       </div>
       <nav >
-        <button id="home" onClick={()=>{navigate("/")}}>home</button>
+        <button className="button"  onClick={()=>{navigate("/")}}>home</button>
+        <button className="button" onClick={()=>{navigate("/creat")}}>Creat</button>
       </nav>
       <div>{props.children}</div>
       

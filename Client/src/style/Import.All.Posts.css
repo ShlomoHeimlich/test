@@ -1,0 +1,35 @@
+img {
+  height: 60px;
+  width: 90px;
+}
+#posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 10px;
+  background-color: #f5f5dc;
+}
+
+@media (max-width: 800px) {
+  #posts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+#postbutton {
+  background-color: #f5f5dc;
+  border: 1px solid black;
+  width: 80%;
+  height: 100%;
+}
+
+@media (max-width: 500px) {
+  #posts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 300px) {
+  #posts {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,3 +1,3 @@
 export default function Slogen() {
-  return <h1>סלוגן</h1>;
+  return <h1>Linkodkod</h1>;
 }
