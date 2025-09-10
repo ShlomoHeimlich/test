@@ -42,7 +42,7 @@ export default function Posts() {
             key={item.id}
             id="postbutton"
             onClick={() => {
-              navigate(`/post/${item.id}`);
+              navigate(`/app/post/${item.id}`);
             }}
           >
             <CreatPost post={item} />
