@@ -1,10 +1,13 @@
 import express from "express";
 const router = express.Router();
-import { getAllPost,getPostById,CreatPost} from "../controller/controller.js"
+import { getAllPost, getPostById, CreatPost, register, login } from "../controller/controller.js"
 
-router.get("/post", getAllPost)
-router.get("/post/:id", getPostById)
-router.post("/creatpost", CreatPost)
+router.get("/app/post", getAllPost)
+router.get("/app/post/:id", getPostById)
+router.post("/app/creatpost", CreatPost)
+
+router.post("/register", register);
+router.post("/login", login);
 export default router
 
 

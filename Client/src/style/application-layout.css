@@ -14,11 +14,10 @@ nav {
   height: 30px;
 }
 
-
-.button{
-    margin-left: 20%;
-    background-color: rgb(223, 162, 87);
-    border: 1px solid rgb(210, 184, 184);
-    width: 20%;
-    height: 100%;
+.button {
+  margin-left: 20%;
+  background-color: rgb(223, 162, 87);
+  border: 1px solid rgb(210, 184, 184);
+  width: 20%;
+  height: 100%;
 }

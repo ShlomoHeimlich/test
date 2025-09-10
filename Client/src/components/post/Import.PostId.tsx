@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import CreatPost from "./Import.CreatPost.tsx";
 import "../../style/Import.PostId.css";
 interface post {
+  id: string;
   name: string;
   url_img: string;
   description: string;
   time: string;
   date: string;
+  likes: string;
 }
 export default function PostId() {
   const { id } = useParams();
@@ -16,8 +18,8 @@ export default function PostId() {
   useEffect(() => {
     async function Postss() {
       try {
-        const response = await fetch(`http://localhost:4000/post/${id}`);
-        if (response.status != 201) {
+        const response = await fetch(`http://localhost:4000/app/post/${id}`);
+        if (response.status != 401) {
           const data = await response.json();
           setPostid(data);
         }

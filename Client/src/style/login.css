@@ -1,0 +1,28 @@
+#form input {
+  width: 60%;
+}
+#sudmit {
+  margin-left: 0%;
+}
+#Customerupdate {
+  margin-right: 50%;
+  color: rgb(53, 182, 182);
+}
+#button {
+  width: 30%;
+}
+#Message_customer {
+  margin-top: 10%;
+}
+
+#title {
+  font-size: 100%;
+}
+#form {
+  margin-left: 35%;
+}
+
+#mistake {
+  margin-top: 10px;
+  margin-left: 47%;
+}

@@ -1,10 +1,12 @@
 import "../../style/Import.CreatPost.css";
 interface post {
+  id: string;
   name: string;
   url_img: string;
   description: string;
   time: string;
   date: string;
+  likes: string;
 }
 export default function CreatPost(props: { post: post }) {
   return (
@@ -17,7 +19,7 @@ export default function CreatPost(props: { post: post }) {
         <p className="p">{props.post.name}</p>
         <img src={props.post.url_img} alt="Badam's photo." />
         <p className="p">{props.post.description}</p>
-        <input type="number" placeholder="    liks"/>
+        <p>{props.post.likes}</p>
       </div>
     </div>
   );

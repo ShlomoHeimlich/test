@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "../../style/Creat.css";
+import { useNavigate } from "react-router-dom";
 export default function Creat() {
+  const navigate = useNavigate();
   const [name, setname] = useState("");
   const [url_img, seturl_img] = useState("");
   const [description, setdescription] = useState("");
   const [success, setsuccess] = useState(false);
-
+  const [like, setlike] = useState("");
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     const now = new Date();
@@ -17,9 +19,10 @@ export default function Creat() {
     const getFullYear = now.getFullYear();
     const time: string = `${hours}:${minutes}:${seconds}`;
     const date: string = `${getDate}/${getMonth}/${getFullYear}`;
-    const formData = { name, url_img, description, time, date };
+    const id = time + name;
+    const formData = { name, url_img, description, time, date, id, like };
     try {
-      const response = await fetch("http://localhost:4000/creatpost", {
+      const response = await fetch("http://localhost:4000/app/creatpost", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,6 +31,7 @@ export default function Creat() {
       });
       if (response.status === 200) {
         setsuccess(true);
+        navigate(`/app`);
       }
     } catch (error) {
       console.log("Error submitting form:", error);
@@ -36,7 +40,7 @@ export default function Creat() {
   return (
     <div id="form">
       <form onSubmit={handleSubmit}>
-        <input 
+        <input
           required
           type="text"
           onChange={(e) => setname(e.target.value)}
@@ -54,13 +58,21 @@ export default function Creat() {
           onChange={(e) => setdescription(e.target.value)}
           placeholder="Enter your description."
         />
-        <input type="submit" value="Submit Form"></input>
+
+        <input
+          required
+          type="number"
+          onChange={(e) => setdescription(e.target.value + "👍")}
+          placeholder="Enter num of liks."
+        />
+
+        <input id="sudmit" type="submit" value="Submit"></input>
       </form>
       <div id="Customerupdate">
         {success ? (
           <div>The post was submitted successfully.</div>
         ) : (
-          <div>Fill in all the details..</div>
+          <div id="Message_customer">Fill in all the details..</div>
         )}
       </div>
     </div>
