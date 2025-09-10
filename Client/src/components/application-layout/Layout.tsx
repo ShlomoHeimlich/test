@@ -12,18 +12,25 @@ export default function Layout(props: any) {
         <div className="spacer"></div>
         <Logo />
       </div>
-      <nav >
-        <button className="button"  onClick={()=>{navigate("/")}}>home</button>
-        <button className="button" onClick={()=>{navigate("/creat")}}>Creat</button>
+      <nav>
+        <button
+          className="button"
+          onClick={() => {
+            navigate("/app");
+          }}
+        >
+          home
+        </button>
+        <button
+          className="button"
+          onClick={() => {
+            navigate("/app/creat");
+          }}
+        >
+          Creat
+        </button>
       </nav>
       <div>{props.children}</div>
-      
     </>
   );
 }
-
-
-
-
-
-

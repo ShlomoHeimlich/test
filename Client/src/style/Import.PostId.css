@@ -16,8 +16,6 @@
   width: 90%;
   height: 90%;
 }
-.p{
-  margin-left: 20%;
-  margin-top: 0px;
+.p {
   flex-wrap: wrap;
 }

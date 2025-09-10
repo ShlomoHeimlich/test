@@ -12,7 +12,7 @@ form {
 }
 #Customerupdate {
   color: rgb(59, 59, 187);
-  margin-left: 35%;
+  margin-left: 10%;
   font-size: 170%;
   margin-top: 20%;
 }
@@ -20,4 +20,12 @@ form {
 input {
   margin-top: 2%;
   color: rgb(8, 8, 28);
+}
+#sudmit {
+  width: 10%;
+  height: 10%;
+  margin-left: 40%;
+}
+#Message_customer {
+  margin-left: 20%;
 }

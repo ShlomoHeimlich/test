@@ -1,24 +1,44 @@
 import Layout from "./components/application-layout/Layout.tsx";
-import Content from "./components/application-layout/Content.tsx"
+import Content from "./components/application-layout/Content.tsx";
 import { BrowserRouter, Routes, Route } from "react-router";
-import PostId from "./components/post/Import.PostId.tsx"
+import PostId from "./components/post/Import.PostId.tsx";
 import Creat from "./components/post/Creat.tsx";
+import Login from "./components/auth/Login.tsx";
+import Register from "./components/auth/Register.tsx";
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Content/>} />
-             <Route path="/post/:id" element={<PostId />} />
-             <Route path="/creat" element={<Creat />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/app"
+          element={
+            <Layout>
+              <Content />
+            </Layout>
+          }
+        />
+        <Route
+          path="/app/post/:id"
+          element={
+            <Layout>
+              <PostId />
+            </Layout>
+          }
+        />
+        <Route
+          path="/app/creat"
+          element={
+            <Layout>
+              <Creat />
+            </Layout>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
-// a {
-//   text-decoration: none;
-// }
+
 export default App;
