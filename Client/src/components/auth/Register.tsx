@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../style/login.css";
-
 export default function Register() {
   const [name, setname] = useState("");
   const [Password, setPassword] = useState("");
   const [success, setsuccess] = useState(false);
   const navigate = useNavigate();
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = { name, Password };
     try {

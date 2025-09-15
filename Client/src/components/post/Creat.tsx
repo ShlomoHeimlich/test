@@ -5,10 +5,10 @@ export default function Creat() {
   const navigate = useNavigate();
   const [name, setname] = useState("");
   const [url_img, seturl_img] = useState("");
-  const [description, setdescription] = useState("");
+  const [description, setDescription] = useState("");
   const [success, setsuccess] = useState(false);
-  const [like, setlike] = useState("");
-  const handleSubmit = async (event: any) => {
+  const [likes, setlike] = useState("");
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const now = new Date();
     const hours = now.getHours();
@@ -20,7 +20,7 @@ export default function Creat() {
     const time: string = `${hours}:${minutes}:${seconds}`;
     const date: string = `${getDate}/${getMonth}/${getFullYear}`;
     const id = time + name;
-    const formData = { name, url_img, description, time, date, id, like };
+    const formData = { name, url_img, description, time, date, id, likes };
     try {
       const response = await fetch("http://localhost:4000/app/creatpost", {
         method: "POST",
@@ -55,15 +55,15 @@ export default function Creat() {
         <input
           required
           type="text"
-          onChange={(e) => setdescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
           placeholder="Enter your description."
         />
 
         <input
           required
           type="number"
-          onChange={(e) => setdescription(e.target.value + "👍")}
-          placeholder="Enter num of liks."
+          onChange={(e) => setlike(e.target.value + "👍")}
+          placeholder="Enter num of likes."
         />
 
         <input id="sudmit" type="submit" value="Submit"></input>

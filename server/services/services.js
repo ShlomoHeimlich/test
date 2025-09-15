@@ -1,6 +1,7 @@
 import posts from '../db/dbposts.json' with { type: 'json' };
 import users from '../db/dbusers.json' with { type: 'json' };
 import fs from 'node:fs';
+import bcrypt from "bcrypt"
 const dbposts = "./db/dbposts.json"
 const dbusers = "./db/dbusers.json"
 
@@ -28,7 +29,9 @@ export function getUsersDb() {
     }
 }
 
-export function addUser(user) {
+export async function addUser(user) {
+    const hash=await bcrypt.hash(user.Password,10)
+    user.Password=hash
     const users = getUsersDb();
     users.push(user);
     fs.writeFileSync(dbusers, JSON.stringify(users), "utf-8");

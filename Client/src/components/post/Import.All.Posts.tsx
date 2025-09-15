@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CreatPost from "./Import.CreatPost.tsx";
 import "../../style/Import.All.Posts.css";
 import { useNavigate } from "react-router-dom";
-interface post {
+interface Post {
   id: string;
   name: string;
   url_img: string;
@@ -12,7 +12,7 @@ interface post {
   likes: string;
 }
 export default function Posts() {
-  const [posts, setPosts] = useState<post[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [Data_returned, setData_returned] = useState(true);
   useEffect(() => {

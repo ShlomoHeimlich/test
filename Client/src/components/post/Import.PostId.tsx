@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CreatPost from "./Import.CreatPost.tsx";
 import "../../style/Import.PostId.css";
-interface post {
+interface Post {
   id: string;
   name: string;
   url_img: string;
@@ -13,7 +13,7 @@ interface post {
 }
 export default function PostId() {
   const { id } = useParams();
-  const [postid, setPostid] = useState<post | null>(null);
+  const [postid, setPostid] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function Postss() {

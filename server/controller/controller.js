@@ -1,4 +1,5 @@
 import { getPostDb, InsertingToDB, getUsersDb, addUser } from '../services/services.js'
+import bcrypt from "bcrypt"
 export function getAllPost(req, res) {
     const allpost = getPostDb()
     if (allpost.length === 0) {
@@ -23,18 +24,21 @@ export function CreatPost(req, res) {
 }
 
 export function register(req, res) {
-    const {name, Password } = req.body;
-    console.log(req.body);
-    const users = getUsersDb();
+    const { name, Password } = req.body;
     addUser({ name, Password });
     res.status(200).send(req.body)
 }
 
-export function login(req, res) {
+export async function login(req, res) {
     const { name, Password } = req.body;
     const users = getUsersDb();
-    const user = users.find(user => user.name === name && user.Password === Password);
+
+    const user = users.find(user => user.name === name);
     if (!user) {
+        return res.status(401).send({ error: "Invalid credentials" })
+    }
+    const valid = await bcrypt.compare(Password, user.Password)
+    if (!valid) {
         return res.status(401).send({ error: "Invalid credentials" })
     }
     res.status(200).send(req.body)
