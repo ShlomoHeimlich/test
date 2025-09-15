@@ -9,7 +9,7 @@ export default function Logoin() {
   const [mistake, setmistake] = useState(false);
 
   const navigate = useNavigate();
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = { name, Password };
     try {
